@@ -1,11 +1,29 @@
 #models a calculator
 class Calculator < ActiveRecord::Base
 
-  def initialize initial_state = 0
-    @state = initial_state
+  def +(operand)
+    self.state += operand
+    self.save
+    self.state
   end
 
-  def +(operand)
-    @state += 5
+  def -(operand)
+    self.state  -= operand
+    self.save
+    self.state
   end
+
+  def *(operand)
+    self.state *= operand
+    self.save
+    self.state
+  end
+
+  def /(operand)
+    self.state /= operand
+    self.save
+    self.state
+  end
+
+
 end
