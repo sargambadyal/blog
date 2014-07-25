@@ -28,6 +28,13 @@ describe 'Calculator' do
       expect(calculator.state).to eq(5)
     end
 
+    it 'should set the state to 0 ' do
+      calculator = Calculator.new({:state => 25})
+      calculator.reset()
+      expect(calculator.state).to eq(0)
+    end
+
+
   end
   context "Check Save" do
     it "checks if state is saved after addition" do
