@@ -1,9 +1,13 @@
 Blog::Application.routes.draw do
 
 
-  resources :users
-  #root 'users'
+  #resources :users
+  #root 'calculator#index'
   put 'calculator' => 'calculator#update'
+  namespace :api do
+  post 'calculator' => 'calculator#create'
+  put 'calculator' => 'calculator#update'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

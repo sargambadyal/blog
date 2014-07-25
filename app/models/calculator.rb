@@ -1,25 +1,25 @@
 #models a calculator
 class Calculator < ActiveRecord::Base
 
-  def +(operand)
+  def + operand
     self.state += operand
     self.save
     self.state
   end
 
-  def -(operand)
+  def - operand
     self.state  -= operand
     self.save
     self.state
   end
 
-  def *(operand)
+  def * operand
     self.state *= operand
     self.save
     self.state
   end
 
-  def /(operand)
+  def / operand
     self.state /= operand
     self.save
     self.state
