@@ -1,6 +1,6 @@
 #controls Calculator
 module Api
-  class CalculatorController < ApplicationController
+  class CalculatorController < ActionController::Base
 
     def create
 
