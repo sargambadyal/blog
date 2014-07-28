@@ -2,7 +2,7 @@ Blog::Application.routes.draw do
 
 
   #resources :users
-  #root 'calculator#index'
+  root 'calculator#index'
   put 'calculator' => 'calculator#update'
   namespace :api do
   post 'calculator' => 'calculator#create'

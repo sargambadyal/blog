@@ -1,10 +1,10 @@
 
 
 <h1> :) WELCOME TO CALCULATOR APP :) </h1>
-<%= form_tag(calculator_path, method: "put") do %>
+<%= form_tag(api_calculator_path, method: "put") do %>
     <%= label_tag(:command, "Enter Command:") %>
     <%= text_field_tag(:command) %>
-    <%= submit_tag("Calculate") %>
+    <%= submit_tag("Calculate",name: "Calculate") %>
 
 <% end %>
 <%= render partial:'update'%>
