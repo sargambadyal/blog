@@ -4,6 +4,7 @@ describe Api::CalculatorController do
 
   it "creates the new calculator if instance of calculator is not there" do
     post :create
+    post :create
     expect(response.status).to eq(201)
     expect(Calculator.count).to eq(1)
   end

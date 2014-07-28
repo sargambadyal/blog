@@ -2,11 +2,11 @@ Blog::Application.routes.draw do
 
 
   #resources :users
-  root 'calculator#index'
+  root 'calculator_client#create'
   put 'calculator' => 'calculator#update'
   namespace :api do
-  post 'calculator' => 'calculator#create'
-  put 'calculator' => 'calculator#update'
+  post 'calculator_create' => 'calculator#create'
+  put 'calculator_update' => 'calculator#update'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

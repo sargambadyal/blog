@@ -13,47 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require calculator
 //= require_tree .
-
-$(document).ready(function() {
-    $.ajaxSetup({
-        'beforeSend': function (xhr) {
-            xhr.setRequestHeader("Accept", "text/javascript")
-        }
-    });
-    var submit = document.getElementsByName("Calculate");
-    var calculatorCreated = false;
-    $(submit).click(function () {
-
-        if (calculatorCreated == false) {
-            $.ajax({
-                type: "POST",
-                url: "api/calculator/create"
-            }).success(function (data) {
-                calculatorCreated = true;
-                console.log('CalculatorCreated');
-                calculate($('#command').val());
-            });
-
-        }
-        else
-        {
-            calculate($('#command').val());
-        }
-    });
-    function calculate(command)
-    {
-        $.ajax({
-            type: "PUT",
-            url: "api/calculator/update",
-            data: {command: command}
-        }).success(function (data) {
-            console.log(data.state);
-            var result = document.getElementsByClassName("result");
-            $(result).text("Result is "+ data.state);
-        });
-    }
-});
-
-
-
