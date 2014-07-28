@@ -23,8 +23,6 @@ Calculator.prototype = {
 
     },
 
-
-
     calculate: function (command) {
         alert("calculating..");
         var calc = this;

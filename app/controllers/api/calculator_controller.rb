@@ -3,8 +3,13 @@ module Api
   class CalculatorController < ApplicationController
 
     def create
-      Calculator.first || Calculator.create({:state => 0})
-      head :created
+
+      if (Calculator.first)
+        head :ok
+      else
+        Calculator.create({:state => 0})
+        head :created
+      end
     end
 
     def update
@@ -16,7 +21,7 @@ module Api
         parser = Parser.new(calculator)
         command = params[:command]
         parser.operation(command)
-        render :json => { :state => calculator.state }
+        render :json => {:state => calculator.state}
       end
 
     end
