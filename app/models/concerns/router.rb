@@ -16,8 +16,6 @@ class Router
         @calculator./ input[1]
       when "cancel"
         @calculator.reset
-      when "awesome"
-        "Sargam and Ekta and Hemali"
       else
        "Incorrect command"
     end

@@ -15,4 +15,22 @@ describe 'Parser' do
     parser = Parser.new(calculator)
     expect(parser.parse("sub 5")).to eq(["sub",5])
   end
+
+
+  it 'should be ["mul",5] for mul 5' do
+    parser = Parser.new(calculator)
+    expect(parser.parse("mul 5")).to eq(["mul",5])
+  end
+
+  it 'should be ["div",5] for mul 5' do
+    parser = Parser.new(calculator)
+    expect(parser.parse("div 5")).to eq(["div",5])
+  end
+
+  it 'should call operation and add 5' do
+    parser = Parser.new(calculator)
+    expect(parser.operation("add 5")).to eq(5)
+  end
+
+
 end
