@@ -1,19 +1,23 @@
 #controls Calculator
 module Api
-  class CalculatorController < ActionController::Base
+  class CalculatorController < ApiController
+   respond_to :json
 
     def create
-
-      if (Calculator.first)
+      user = User.find(current_user)
+      if(user.nil?)
+        head :unauthorized
+      elsif(user.calculator)
         head :ok
       else
-        Calculator.create({:state => 0})
+        Calculator.create({:state => 0, :user_id => user.id})
         head :created
       end
     end
 
     def update
-      calculator = Calculator.first
+      user = User.find(current_user)
+      calculator = user.calculator
 
       unless calculator
         head :not_found

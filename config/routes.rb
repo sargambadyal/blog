@@ -1,7 +1,8 @@
 Blog::Application.routes.draw do
 
 
-  #resources :users
+
+  devise_for :users
   root 'calculator_client#create'
   put 'calculator' => 'calculator#update'
   namespace :api do

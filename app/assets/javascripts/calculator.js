@@ -77,7 +77,7 @@ Calculator.prototype = {
         console.log("calculator found or created");
         console.log(this);
         this.commandHistory.append("<h4>Your Calculator is  " +
-            (xhr.status == 201 ? "Created" : "Found") + "</h4>");
+            (xhr.status == 201 ? "Created" : "Found") +"</h4>");
     },
     updateCommandHistory: function (data) {
         console.log("data");
@@ -113,7 +113,12 @@ CalculatorHolder.prototype = {
     clearCalculators: function () {
         var self = this;
         $('#clear').click(function () {
-            self.initialize();
+        while(self.calculators.length>0)
+        {
+            self.calculators.pop();
+
+
+        }
             $(".baseDiv").empty();
 
         });
@@ -122,11 +127,12 @@ CalculatorHolder.prototype = {
 
 
 $(document).ready(function () {
-    alert("YOUR APPLICATION IS READY!!");
+    //alert("YOUR APPLICATION IS READY!!");
     var myApplication = new CalculatorHolder();
     myApplication.clearCalculators();
 
 });
+
 
 
 
